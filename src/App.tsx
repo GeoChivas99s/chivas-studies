@@ -1,3 +1,4 @@
+import { Form } from 'components';
 import React from 'react';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
   Mulato
       </header>
+    <Form />
     </div>
   );
 }
