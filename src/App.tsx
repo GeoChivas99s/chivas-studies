@@ -1,13 +1,11 @@
-import { Form } from 'components';
-import React from 'react';
+import { Form , List} from "components";
+import React from "react";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-  Mulato
-      </header>
-    <Form />
+      <Form />
+      <List/>
     </div>
   );
 }
