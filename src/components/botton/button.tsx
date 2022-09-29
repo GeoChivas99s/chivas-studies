@@ -1,10 +1,10 @@
 import React ,{FC} from 'react'
 import { IButtonProps } from './button.types';
-
+import './style.scss'
 
 const  Button = () =>{
   return (
-    <button >Lindo mesmo</button>
+    <button className='botao'>Lindo mesmo</button>
   )
 }
 
