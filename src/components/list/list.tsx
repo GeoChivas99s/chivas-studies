@@ -1,4 +1,3 @@
-import React, { FC } from "react";
 import style from "./list.module.scss";
 import Item from "./item/item";
 

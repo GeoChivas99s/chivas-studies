@@ -1,5 +1,5 @@
 import { Form, List, Cronometer } from "components";
-import React, { useCallback, useState } from "react";
+import  {  useState } from "react";
 import style from "./App.module.scss";
 
 interface IProps {
@@ -14,7 +14,7 @@ function App() {
   const [tasks, setTasks] = useState<IProps[]>([]);
   const [selected, setSelected] = useState<IProps>();
 
-  const handleSelectTask = useCallback(
+  const handleSelectTask = 
     (selectedTask: IProps) => {
       setSelected(selectedTask);
       setTasks((prev) =>
@@ -23,9 +23,7 @@ function App() {
           isSelected: task.id === selected?.id,
         }))
       );
-    },
-    [selected ,setTasks]
-  );
+    }
 
 
   return (

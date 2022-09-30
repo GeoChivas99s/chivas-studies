@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { Button } from "components/botton";
 import style from "./form.module.scss";
 import { v4 } from "uuid";
@@ -17,23 +17,28 @@ interface IProps {
   >;
 }
 const Form = ({ setTasks }: IProps) => {
-  const INITIAL_STATE = {
-    task: "",
-    time: "00:00:00",
-    isSelected: false, 
-    isCompleted: false, 
-    id: v4() 
-  };
+  const INITIAL_STATE = useMemo(() => {
+    return {
+      task: "",
+      time: "00:00:00",
+      isSelected: false,
+      isCompleted: false,
+      id: v4(),
+    };
+  }, []);
 
   const [newStudies, setNewStudies] = useState(INITIAL_STATE);
-  const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setTasks((prev) => [
-      ...prev,
-      { ...newStudies, isSelected: false, isCompleted: false, id: v4() },
-    ]);
-    setNewStudies(INITIAL_STATE);
-  },[newStudies]);
+  const handleSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      setTasks((prev) => [
+        ...prev,
+        { ...newStudies, isSelected: false, isCompleted: false, id: v4() },
+      ]);
+      setNewStudies(INITIAL_STATE);
+    },
+    [newStudies, INITIAL_STATE, setTasks]
+  );
   return (
     <form className={style.novaTarefa} onSubmit={handleSubmit}>
       <div className={style.inputContainer}>
