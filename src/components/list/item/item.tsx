@@ -23,7 +23,7 @@ function Item({
 }: ItemProps) {
   return (
     <li
-      className={style.item}
+      className={  `${style.item} ${isSelected ? style.itemSelecionado : ''}` }
       onClick={() =>
         handleSelectTask({
           task,

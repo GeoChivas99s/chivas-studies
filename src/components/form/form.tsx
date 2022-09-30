@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "components/botton";
 import style from "./form.module.scss";
@@ -27,14 +27,14 @@ const Form = ({ setTasks }: IProps) => {
   };
 
   const [newStudies, setNewStudies] = useState(INITIAL_STATE);
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback((event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTasks((prev) => [
       ...prev,
       { ...newStudies, isSelected: false, isCompleted: false, id: v4() },
     ]);
     setNewStudies(INITIAL_STATE);
-  };
+  },[newStudies]);
   return (
     <form className={style.novaTarefa} onSubmit={handleSubmit}>
       <div className={style.inputContainer}>
