@@ -10,12 +10,19 @@ interface ITask {
   id: string;
 }
 
-const List = ({ tasks }: { tasks: ITask[] }) => {
+interface IProps {
+  tasks: ITask[];
+  handleSelectTask: (selectedTask: ITask) => void;
+}
+
+const List = ({tasks , handleSelectTask }: IProps) => {
   return (
     <aside className={style.listaTarefas}>
       <h2>Estudos do dia</h2>
       {tasks.map((item, index) => {
-        return <Item key={index} {...item} />;
+        return <Item 
+        handleSelectTask={handleSelectTask}
+        key={index} {...item} />;
       })}
     </aside>
   );

@@ -21,6 +21,9 @@ const Form = ({ setTasks }: IProps) => {
   const INITIAL_STATE = {
     task: "",
     time: "00:00:00",
+    isSelected: false, 
+    isCompleted: false, 
+    id: v4() 
   };
 
   const [newStudies, setNewStudies] = useState(INITIAL_STATE);

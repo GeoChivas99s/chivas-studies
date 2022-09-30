@@ -8,12 +8,32 @@ interface IProps {
   isSelected: boolean;
   isCompleted: boolean;
   id: string;
-  
+}
+interface ItemProps extends IProps {
+  handleSelectTask: (selectedTask: IProps) => void;
 }
 
-function Item({ task, time , isSelected, isCompleted, id }: IProps) {
+function Item({
+  task,
+  time,
+  isSelected,
+  isCompleted,
+  id,
+  handleSelectTask,
+}: ItemProps) {
   return (
-    <li className={style.item}>
+    <li
+      className={style.item}
+      onClick={() =>
+        handleSelectTask({
+          task,
+          time,
+          isSelected,
+          isCompleted,
+          id,
+        })
+      }
+    >
       <h3>{task}</h3>
       <span>{time}</span>
     </li>
