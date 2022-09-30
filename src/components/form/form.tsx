@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from "react";
-import PropTypes from "prop-types";
 import { Button } from "components/botton";
 import style from "./form.module.scss";
 import { v4 } from "uuid";

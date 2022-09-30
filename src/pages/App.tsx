@@ -24,7 +24,7 @@ function App() {
         }))
       );
     },
-    [selected]
+    [selected ,setTasks]
   );
 
 

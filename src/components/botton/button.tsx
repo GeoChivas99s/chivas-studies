@@ -1,5 +1,5 @@
-import React ,{FC} from 'react'
-import { IButtonProps } from './button.types';
+import {FC} from 'react'
+
 import style from  './button.module.scss'
 
 const  Button:FC<{text:string, type?:"button" | "submit" | "reset" | undefined}> = (props)  =>{
