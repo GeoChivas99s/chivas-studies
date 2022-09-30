@@ -2,9 +2,10 @@ import React ,{FC} from 'react'
 import { IButtonProps } from './button.types';
 import style from  './button.module.scss'
 
-const  Button:FC<{text:string}> = (props)  =>{
+const  Button:FC<{text:string, type?:"button" | "submit" | "reset" | undefined}> = (props)  =>{
+  const { type ="button"} = props;
   return (
-    <button className={style.botao}>{props.text}</button>
+    <button type={type} className={style.botao}>{props.text}</button>
   )
 }
 
