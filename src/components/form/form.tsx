@@ -18,9 +18,8 @@ const Form = ({ setTasks }: IProps) => {
     task: "",
     time: "00:00:00",
   };
-
+  
   const [newStudies, setNewStudies] = useState(INITIAL_STATE);
-  console.log("asaskjhajhsga");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setTasks((prev) => [...prev, { ...newStudies }]);
