@@ -3,8 +3,11 @@ import React , {useState} from "react";
 import style from './App.module.scss'
 
 interface IProps {
-  task:string;
-  time:string;
+  task: string;
+  time: string;
+  isSelected: boolean;
+  isCompleted: boolean;
+  id: string;
 }
 
 function App() {

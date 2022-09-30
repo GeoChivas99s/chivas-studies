@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button } from "components/botton";
 import style from "./form.module.scss";
+import { v4 } from "uuid";
 
 interface IProps {
   setTasks: React.Dispatch<
@@ -9,6 +10,9 @@ interface IProps {
       {
         task: string;
         time: string;
+        isSelected: boolean;
+        isCompleted: boolean;
+        id: string;
       }[]
     >
   >;
@@ -22,7 +26,10 @@ const Form = ({ setTasks }: IProps) => {
   const [newStudies, setNewStudies] = useState(INITIAL_STATE);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTasks((prev) => [...prev, { ...newStudies }]);
+    setTasks((prev) => [
+      ...prev,
+      { ...newStudies, isSelected: false, isCompleted: false, id: v4() },
+    ]);
     setNewStudies(INITIAL_STATE);
   };
   return (
